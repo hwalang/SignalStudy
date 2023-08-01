@@ -6,8 +6,8 @@
 
 
 ### java
-/bin/
-/.settings/
-.project
-.classpath
-.gitignore
+/bin/   
+/.settings/   
+.project   
+.classpath   
+.gitignore   
