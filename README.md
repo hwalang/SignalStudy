@@ -85,6 +85,7 @@
     4. git sparse-checkout init
     5. git sparse-checkout set `hwalang` << 자기 이름 폴더로 변경하면 됨
     6. git sparse-checkout list // set 되었는지 확인 한다.
+        6.1. git branch -m master main  // 현재 branch 를 git 과 맞춰준다.
     7. git pull origin main
 
     8. 로컬에 생성되었는지 확인
@@ -96,7 +97,7 @@
 
     11.  commit/push 진행
         11.1. git add `( '.' or add file path)`  : '.'은 변경사항 전체를 의미, 
-        11.2. git commit -m "`(commit message)`" : <b>! commit convention !</b>
+        11.2. git commit -m "`(commit message)`" : 📌commit convention
         11.3. git pull origin main
         11.4. git push origin main
         📌 pull 하지 않고 commit -> push 단계를 밟았다간 git repository 의 내용이 날라갈 수 있으니 조심!!
