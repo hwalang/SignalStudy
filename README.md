@@ -101,10 +101,11 @@
         11.4. git push origin main
         📌 pull 하지 않고 commit -> push 단계를 밟았다간 git repository 의 내용이 날라갈 수 있으니 조심!!
 
-</b>
-### ⚠️ invalid path error 발생
+</br>
 
-![Alt text](public/image.png)
+### ⚠️ invalid path error 발생 
+
+<img src="public/image.png"></img><br/>
 
 - windows 환경 git에서는 ?와 같은 특수문자가 포함되어 있으면 정상적으로 작동이 되지 않는다고 한다.
 
