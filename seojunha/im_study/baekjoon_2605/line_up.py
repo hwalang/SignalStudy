@@ -1,17 +1,22 @@
 import sys
 input = sys.stdin.readline
 
-arr = [int(input()) for _ in range(9)]
+N = int(input())
+arr = list(map(int, input().split()))
 
-n = len(arr)
-result = []
-for i in range(1<<n):
-    subset = []
-    for j in range(n):
-        if i & (1<<j):
-            subset.append(arr[j])
-        if len(subset) == 7 and sum(subset) == 100:
-            result = sorted(subset)
+start = [0] * N
+for i in range(N):
+    start[i] = i + 1
+# 시작 줄을 [1, 2, 3, 4, 5...]으로 만들었음
 
-for x in result:
-    print(x)
+# 새로 만들 리스트
+new_lst = []
+
+# N번 뽑을 것임.
+for j in range(N):
+    # 새로운 인덱스 설정
+    new_position = j - arr[j]
+    # 새로운 인서트에 삽입
+    new_lst.insert(new_position, start[j])
+
+print(*new_lst)
