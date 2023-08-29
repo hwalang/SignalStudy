@@ -28,14 +28,14 @@
 <table>
  <tr>
     <td align="center"><a href="https://github.com/hwalang"><img src="https://avatars.githubusercontent.com/hwalang" width="150px;" alt=""></a></td>
-    <td align="center"></td>
+    <td align="center"><a href="https://github.com/SeoJunHa96"><img src="https://avatars.githubusercontent.com/SeoJunHa96" width="150px;" alt=""></td>
     <td align="center"></td>
     <td align="center"></td>
    <td align="center"></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/hwalang"><b>hwalang</b></a></td>
-    <td align="center"></td>
+    <td align="center"><a href="https://github.com/SeoJunHa96"><b>SeoJunHa96</b></a></td>
     <td align="center"></td>
     <td align="center"></td>
     <td align="center"></td>
