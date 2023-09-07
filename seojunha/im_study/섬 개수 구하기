@@ -1,0 +1,32 @@
+import sys
+input=sys.stdin.readline
+
+#1은 땅, 0은 바다.
+# 상, 우상, 우, 우하, 하, 좌하, 좌, 좌상
+di = [-1, -1, 0, 1, 1, 1, 0, -1]
+dj = [0, 1, 1, 1, 0, -1, -1, -1]
+
+while True:
+    w, h = map(int, input().split())
+    if w == 0 and h == 0:
+        break
+    MAP = [list(map(int, input().split())) for _ in range(h)]
+
+    visited = [[False]*w for _ in range(h)]
+    result = 0
+
+    for i in range(h):
+        for j in range(w):
+            if MAP[i][j] == 1 and not visited[i][j]:
+                stack = [(i, j)]
+                while stack:
+                    x, y = stack.pop()
+                    visited[x][y] = True
+                    for k in range(8):
+                        ni, nj = x + di[k], y + dj[k]
+                        if 0 <= ni < h and 0 <= nj < w and MAP[ni][nj] == 1 and not visited[ni][nj]:
+                            # 방문 처리
+                            visited[ni][nj] = True
+                            stack.append((ni, nj))
+                result += 1
+    print(result)
