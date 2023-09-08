@@ -1,31 +1,28 @@
-import sys
-sys.stdin = open('input0809study.txt')
+x, y = map(int, input().split())  # 블록의 가로 및 세로 길이
+N = int(input())  # 상점의 개수
+shops = [list(map(int, input().split())) for _ in range(N)]
+dong_x, dong_y = map(int, input().split())  # 동근이의 위치
 
-def generate_pascal_subset(N):
-    list_storage = list(range(1, N + 1)) + list(range(N, 0, -1))
-    pascal_subset = []
+total_distance = 0
 
-    for i in range(1 << len(list_storage)):
-        subset = []
-        for j in range(len(list_storage)):
-            if i & (1 << j):
-                subset.append(list_storage[j])
+# 서쪽 또는 동쪽에 있는 경우
+if dong_x in {3, 4}:
+    for i, j in shops:
+        if i in {3, 4}:
+            total_distance += abs(dong_y - j)  # 둥근이와 상점의 y 좌표 차이
+        elif i == 1:  # 북쪽에 있는 상점
+            total_distance += j + dong_y  # 둥근이와 상점의 y 좌표 합
+        else:  # 남쪽에 있는 상점
+            total_distance += y - j + dong_y  # 둥근이와 상점의 y 좌표 차이와 블록의 세로 길이를 합함
 
-        for k in range(N):        
-            if sum(subset) == 2 ** k and subset == subset[::-1] and subset[0] == 1 and len(subset) == k+1:
-                pascal_subset.append(subset)
+# 북쪽 또는 남쪽에 있는 경우
+else:
+    for i, j in shops:
+        if i in {1, 2}:
+            total_distance += abs(dong_x - i)  # 둥근이와 상점의 x 좌표 차이
+        elif i == 3:  # 서쪽에 있는 상점
+            total_distance += x - j + dong_x  # 둥근이와 상점의 x 좌표 차이와 블록의 가로 길이를 합함
+        else:  # 동쪽에 있는 상점
+            total_distance += j + dong_x  # 둥근이와 상점의 x 좌표 합
 
-    result = []
-    for value in pascal_subset:
-        if value not in result:
-            result.append(value)
-    return result
-
-T = int(input())
-for tc in range(1, T + 1):
-    N = int(input())
-    
-    pascal_subset = generate_pascal_subset(N)
-    print(f'#{tc}')
-    for subset in pascal_subset:
-        print(*subset)
+print(total_distance)
